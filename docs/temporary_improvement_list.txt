@@ -1,0 +1,102 @@
+High Priority Improvements
+1. Enhance Syntax Highlighting Coverage
+The current grammar is basic. Based on LinuxCNC documentation, you should add:
+
+HAL component types: Recognize built-in components like pid, encoder, stepgen, mux2, scale, etc.
+Signal types: Highlight bit, float, s32, u32 data types
+Pin directions: Recognize IN, OUT, IO keywords
+Thread names: Highlight servo-thread, base-thread, etc.
+HAL parameters: Distinguish between pins, parameters, and signals
+
+2. Add IntelliSense/Autocomplete
+The changelog mentions a Language Server for autocompletion is planned. This would be huge:
+
+Autocomplete for HAL commands (loadrt, addf, setp, etc.)
+Suggest available components from LinuxCNC library
+Pin/signal name completion based on loaded components
+Parameter suggestions for components
+
+3. Improve INI File Support
+The INI syntax is generic. Make it LinuxCNC-specific:
+
+Recognize LinuxCNC-specific sections ([EMC], [DISPLAY], [TRAJ], [AXIS_X], etc.)
+Highlight known configuration parameters
+Validate section names and parameter names
+
+4. Add Diagnostics/Linting
+
+Detect undefined signals being used
+Check for mismatched pin/signal types (bit vs float)
+Warn about unused signals
+Validate addf function calls (ensure component exists)
+Check for proper loadrt before addf usage
+
+5. Documentation/README Improvements
+Current README is minimal. Add:
+
+Screenshots showing different features
+Installation instructions from marketplace
+Feature list with examples
+Link to LinuxCNC documentation
+Contribution guidelines
+
+6. Add Hover Documentation
+Show documentation when hovering over:
+
+HAL commands (what they do)
+Component names (what pins they provide)
+Common parameters (valid ranges, units)
+
+7. Code Snippets
+Add useful snippets for:
+
+Common component configurations
+Standard axis setup templates
+PID tuning blocks
+Spindle control patterns
+
+8. Better Comment Handling
+Support for:
+
+TODO/FIXME highlighting in comments
+Documentation comment blocks
+Section header comments
+
+9. Symbol Navigation
+Implement:
+
+Outline view showing all signals and components
+Go to definition for signal names
+Find all references for signals/pins
+
+10. Validation Features
+
+Check that net statements connect compatible pin types
+Verify thread assignments are valid
+Detect duplicate signal definitions
+Check for signals that are set but never read (and vice versa)
+
+Medium Priority
+11. G-code Support
+Add .ngc file support since LinuxCNC uses G-code
+12. Configuration File Linking
+
+Jump to definition when clicking [SECTION]PARAMETER references in HAL files
+Navigate between related HAL and INI files
+
+13. Better Icon
+The current icon could be more distinctive/professional
+14. Theme Integration
+Test and optimize syntax colors for popular themes (Dark+, Light+, Monokai, etc.)
+Low Priority
+15. Testing
+Add unit tests for the grammar and language features
+16. Marketplace Optimization
+
+Better description with keywords
+More screenshots
+Video demonstration
+Better categorization
+
+17. Formatter
+Implement code formatting for consistent style
